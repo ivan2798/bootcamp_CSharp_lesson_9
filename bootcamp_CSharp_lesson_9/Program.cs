@@ -13,13 +13,17 @@ namespace bootcamp_CSharp_lesson_9
 
         static void Main(string[] args)
         {
-            Caballo Babieca = new Caballo();
+            Caballo Babieca = new Caballo("Babieca");
 
-            Humano Jorge = new Humano();    
+            Humano Jorge = new Humano("Jorge");    
 
-            Gorila Copito = new Gorila();
+            Gorila Copito = new Gorila("Copito");
 
             Copito.trepar();
+
+            Jorge.getNombre();
+
+            Copito.getNombre();
 
         }
 
@@ -27,6 +31,10 @@ namespace bootcamp_CSharp_lesson_9
 
     class Mamiferos
     {
+        public Mamiferos(String nombre)
+        {
+            nombreServivo = nombre; 
+        }
         public void respirar()
         {
             Console.WriteLine("Soy capaz de respirar");
@@ -36,10 +44,20 @@ namespace bootcamp_CSharp_lesson_9
         {
             Console.WriteLine("Crías");
         }
+
+        public void getNombre()
+        {
+            Console.WriteLine($"El nombre del ser vivo es: {nombreServivo}");
+        }
+        private string nombreServivo;
     }
 
     class Caballo : Mamiferos
     {
+        public Caballo(String nombreCaballo):base(nombreCaballo)
+        {
+
+        }
         public void galopar()
         {
             Console.WriteLine("Soy capaz de galopar");
@@ -48,6 +66,10 @@ namespace bootcamp_CSharp_lesson_9
 
     class Humano : Mamiferos
     {
+        public Humano(string nombreHumano):base(nombreHumano)
+        {
+
+        }
         public void pensar()
         {
             Console.WriteLine("Pensando");
@@ -56,6 +78,10 @@ namespace bootcamp_CSharp_lesson_9
 
     class Gorila: Mamiferos
     {
+        public Gorila(string nombreGorila) : base(nombreGorila)
+        {
+
+        }
         public void trepar()
         {
             Console.WriteLine("Puedo trepar");
